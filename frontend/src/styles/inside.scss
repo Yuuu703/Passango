@@ -1,0 +1,24 @@
+// src/styles/inside.scss
+@import 'variables';
+
+#inside {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 80vh;
+    justify-content: center;
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      color: $text-color;
+    }
+
+    p {
+      color: $muted-text-color;
+    }
+  }
+}

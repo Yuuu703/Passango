@@ -1,0 +1,36 @@
+//homepage distribution
+.homepage{
+  display: flex;
+  flex-direction: column;
+}
+
+//about
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 25vh;
+  padding: 50px 20px;
+  background-color: black;
+  height: 100vh;
+  color: white;
+  align-items: right;
+  .pictures{
+    img{
+    width:200px;
+    }
+  }
+  .about_content{
+    
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+}

@@ -1,0 +1,61 @@
+#get-started {
+  background: url('public/images/musicbackground.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: left;
+  height: 100vh;
+  padding: 100px;
+  text-align: left;
+  background-color: gray;
+
+  .get-started-content {
+    max-width: 600px;
+    color: white;
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+
+}
+
+
+  @media (max-width: 768px) {
+    #get-started .get-started-content {
+      h1{
+      font-size: 2rem;
+      margin-bottom: 10px;
+      }
+      p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      }
+    }
+    #get-started {
+      padding-left: 50px;
+      padding-right: 150px;
+    }
+  }
