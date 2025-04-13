@@ -1,9 +1,10 @@
-footer {
+footer { 
   display: flex;
   justify-content: space-between;
   background-color: #000000;
   color:white;
   width: 100%;
+  z-index: 1000;
 
   .logo_footer {
     display: flex; 

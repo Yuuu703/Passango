@@ -40,13 +40,15 @@ function Inside() {
       <Header />
       <main>
         {user && <p>Welcome, {user.email}!</p>}
-        <Hero
-          title="Create your style"
-          description="Take a music video and turn its raw sound into chords and tabs in an instant. Starting from scratch, our platform decodes the notes hidden in every beat, delivering a playable blueprint for guitarists and learners. It’s your shortcut from hearing a tune to mastering it, no matter the source."
-          buttonText="CREATE MUSIC"
-          buttonLink="/create"
-          imageSrc="/images/music-is-my-drug.png"
-        />
+        <div className='top_inside'>
+          <div className='quote_inside'>
+            <h2>Welcome to PassanGo: Your Ultimate Music Companion</h2>
+            <p>Discover PassanGo, the music app that brings songs to life for musicians and enthusiasts alike. With powerful chord recognition, lyrics detection, and a simple, intuitive design, we make it easy to analyze, learn, and create music. Upload a song, uncover its chords and lyrics in real-time, and explore your creativity—all in one place. Powered by cutting-edge technology and a passion for music, PassanGo is here to inspire your musical journey.</p>
+          </div>
+          <div className='img_inside'> 
+              <img src='public/images/radio.jpg' alt="RANDOM stuffs" />
+          </div>
+        </div>
         <Featured onDiscoverClick={() => window.location.href = '/create'} />
       </main>
       <Footer />

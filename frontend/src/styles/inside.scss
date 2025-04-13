@@ -1,24 +1,68 @@
 // src/styles/inside.scss
 @import 'variables';
-
-#inside {
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
+.top_inside{
+  display: flex;
+  height: 100vh;
+  padding: 9%;
+  background-color:#121212 ;
+  color: #cbbd9b;
+  .quote_inside{
+    padding-top: 8%;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    text-align: center;
+    color: white;
+    h2{
+      font-size: 2rem;
+      color:white
+    }
+    p{
+      font-size: 1rem;
+      color:white;
+    }
+  }
+  .img_inside{
+    width: 50%;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    min-height: 80vh;
     justify-content: center;
-
-    h1 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-      color: $text-color;
+    align-content: center;
+    img{
+      align-self: center;
+      width: 90%;;
+      height: auto;
+      border-radius: 10px;
+      background-color: white; //will delete, use this to check circle
     }
-
-    p {
-      color: $muted-text-color;
+  }
+}
+@media (max-width:768px){
+  .top_inside{
+    height: 100vh;
+    flex-direction: column;
+    height: 100%;
+    gap:30px;
+    .quote_inside{
+      padding-top: 30%;
+      width: 100%;
+      h2{
+        font-size: 1.5rem;
+      }
+      p{
+        font-size: 0.8rem;
+      }
+    }
+    .img_inside{
+      width: 100%;
+      img{
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        background-color: white; //will delete, use this to check circle
+      }
     }
   }
 }

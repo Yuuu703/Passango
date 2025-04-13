@@ -1,11 +1,12 @@
 header {
   display:flex ;
   justify-content: space-between;
-  background-color: rgb(0, 0, 0);
-  color:#cbbd9b;
+  background-color: #000000;
+  color:white;
   position: fixed;
   width:100%;
   opacity: 1;
+  z-index:1000;
 
   nav {
     display: flex;
@@ -19,6 +20,7 @@ header {
   
       li {
         margin-left: 20px;
+        transition: all 0.3s ease-in-out;
         a {
           font-family: Arial, Helvetica, sans-serif;
           text-decoration: none;
@@ -26,6 +28,13 @@ header {
           color: #cbbd9b;
           font-size: 1.3rem;
           border-radius:10px;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: #ffffff; 
+          }
+        }
+        &:hover{
+          transform: scale(1.1); 
         }
       }
     }
@@ -54,8 +63,6 @@ header {
     display:flex ;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(0, 0, 0);
-    color:white;
   
     nav {
       height: 100px;
@@ -63,7 +70,6 @@ header {
       flex-direction: column;
       justify-content:center;
       align-items: center;
-      color: white;
       margin-right: 50px;
     }
   
@@ -92,7 +98,6 @@ header {
         a {     
           text-decoration: none;
           padding: 20px;
-          color: rgb(255, 255, 255);
           font-size: 1.1rem;
           border-radius:10px;
         }
