@@ -3,9 +3,15 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import Featured from '../components/Featured';
-import Subscription from '../components/Subscription';
 
 function About() {
+  const photos = [
+    '/images/music slogan.jpg',
+    '/images/mrchau.jpg',
+    '/images/music slogan.jpg',
+    '/images/music slogan.jpg',
+    '/images/music slogan.jpg',
+  ];
   return (
     <section>
       <Header/>
@@ -15,8 +21,15 @@ function About() {
           imageSrc="public/images/music slogan.jpg"
         />
         <section className="about">
-          <div className='pictures'>
-            <img src="public/images/music slogan.jpg" alt="About us" />
+        <div className="pictures">
+            {photos.map((photo, index) => (
+              <img
+                key={index}
+                src={photo}
+                alt={`Team member ${index + 1}`}
+                className={`face face-${index + 1}`}
+              />
+            ))}
           </div>
           <div className='about_content'>
           <h2>About us</h2>

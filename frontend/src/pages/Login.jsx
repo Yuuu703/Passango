@@ -81,7 +81,7 @@ function Login() {
             <label className="checkbox-label">
               <input type="checkbox" id="remember-me" /> Remember me
             </label>
-            <button type="submit" className="btn_login btn-login">
+            <button type="submit" className="button_login">
               Log In
             </button>
             <p>

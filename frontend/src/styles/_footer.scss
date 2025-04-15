@@ -1,9 +1,10 @@
-footer {
+footer { 
   display: flex;
   justify-content: space-between;
   background-color: #000000;
   color:white;
   width: 100%;
+  z-index:index 999;
 
   .logo_footer {
     display: flex; 
@@ -24,6 +25,7 @@ footer {
     justify-content: space-evenly;
 
     div {
+      
       padding:20px;
       display: flex;
       flex-direction: column;

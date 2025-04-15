@@ -129,7 +129,7 @@ function Signup() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            <button type="submit" className="btn_signup btn-signup">
+            <button type="submit" className="button_signup">
               Sign Up
             </button>
             <p>
