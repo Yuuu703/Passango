@@ -4,12 +4,12 @@
 
 #create {
   .create-section {
-    height: 83.4vh;
+    min-height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
+    padding: 10%;
     background-color: #333333;
     .upload-box {
     
@@ -67,6 +67,20 @@
             background-color: gray;
             color:black;
             transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}@media(max-width: 768px){
+  #create {
+    .create-section {
+      padding: 50% 10% 10% 10%;
+      .upload-box {
+        max-width: 100%;
+        form {
+          input {
+            width: 100%;
           }
         }
       }

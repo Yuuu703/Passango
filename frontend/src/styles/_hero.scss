@@ -1,4 +1,5 @@
 .hero {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,8 +41,8 @@
   }
 
   .hero-image {
-    height: 300px;
-    width: 500px;
+    height: 60%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +59,7 @@
   }
 
   @include respond-to($mobile) {
-    padding-top: 40vh;;
+    padding-top: 40vh;
     flex-direction: column;
     text-align: center;
     gap:1%;
@@ -72,7 +73,7 @@
         font-size: 1.5rem;
       }
       .hero-image {
-        width: 100000000px;
+        width: 100%;
         background-color: saddlebrown;
         img {
           max-width: 100%;

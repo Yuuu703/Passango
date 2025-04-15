@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import { useNavigate } from 'react-router-dom';
-
+import SearchBar from '../components/SearchBar';
 function Header() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
@@ -17,6 +17,7 @@ function Header() {
         <img src="public/images/LOGO (1).png" alt="PassanGo" />
         <h1>PassanGo</h1>
       </div>
+      <SearchBar/>
       <nav>
         <ul>
           {user ? (

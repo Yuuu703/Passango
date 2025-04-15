@@ -7,7 +7,7 @@ import Featured from '../components/Featured';
 function About() {
   const photos = [
     '/images/music slogan.jpg',
-    '/images/music slogan.jpg',
+    '/images/mrchau.jpg',
     '/images/music slogan.jpg',
     '/images/music slogan.jpg',
     '/images/music slogan.jpg',

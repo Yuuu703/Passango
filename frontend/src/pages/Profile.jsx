@@ -3,16 +3,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Modal from '../components/Popup';
+import Modal from '../components/Modal';
 
 function Profile() {
-  const [buttonswitch,setbuttonswitch]=useState(false);
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,7 +34,6 @@ function Profile() {
         }
 
         setUser(data);
-        setEmail(data.email);
       } catch (err) {
         console.error('Fetch user error:', err);
         setError(err.message);
@@ -50,6 +46,48 @@ function Profile() {
     fetchUser();
   }, [navigate]);
 
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container_profile">
+      <Header />
+      <main>
+        <div className="profile_header">
+          <h2>User Profile</h2>
+          <img src="public/images/mrchau.jpg" className="profile_logo" alt="Profile Logo" />
+        </div>
+        <div className="user_content">
+          <h2>ACCOUNT</h2>
+          <div className="edit_profile">
+            <img src="public/images/pen_icon.png" className="img_profile" alt="Edit Icon" />
+            <p>Edit profile</p>
+          </div>
+          <div className="Playlists_profile">
+            <img src="public/images/list_icon.png" className="img_profile" alt="Playlists Icon" />
+            <p>Recent playlists</p>
+          </div>
+          <div className="reset_profile" onClick={() => setIsModalOpen(true)}>
+            <img src="public/images/unlock_icon.png" className="img_profile" alt="Reset Icon" />
+            <p>Reset password</p>
+          </div>
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Update Profile">
+            <ProfileForm user={user} setUser={setUser} onClose={() => setIsModalOpen(false)} />
+          </Modal>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function ProfileForm({ user, setUser, onClose }) {
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -57,7 +95,6 @@ function Profile() {
 
     const token = localStorage.getItem('token');
     if (!token) {
-      navigate('/login');
       return;
     }
 
@@ -90,73 +127,36 @@ function Profile() {
     }
   };
 
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-
-  
   return (
-    <div className="container_profile">
-      <Header />
-      <main>
-        <div className="profile_header">
-          <h2>User Profile</h2>
-          <img src='public/images/music 2.jpg' classname='profile_logo'></img>
-        </div>
-        <div className='user_content'>
-          <h2>ACCOUNT</h2>
-          <div className='edit_profile'>
-            <img src='public/images/pen_icon.png' className='img_profile'></img>
-            <p>Edit profile</p>
-          </div>
-          <div className='Playlists_profile'>
-            <img src='public/images/list_icon.png' className='img_profile'></img>
-            <p>Recent playlists</p>
-          </div>
-          <div className='reset_profile' onClick={()=>setbuttonswitch(true)}>
-            <img src='public/images/unlock_icon.png' className='img_profile'></img>
-            <p>Reset password</p>
-          </div>
-          <div>
-          <Modal trigger={buttonswitch} setTrigger={setbuttonswitch}>
-            {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-            {success && <p style={{ color: 'green', textAlign: 'center' }}>{success}</p>}
-            <form onSubmit={handleSubmit}>
-              {/*adding below div for styling*/ }
-              <div className='profile_email'> 
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Entering your email"
-                />
-              </div>
-              {/*adding below div for styling*/ }
-              <div className='profile_newpass'>
-                <label htmlFor="password">New Password</label> <p>(leave blank to keep current)</p>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter new password"
-                />
-
-              {/* The below button classname is wrong*/}
-                <button type="submit" className="btn btn-login">
-                  Update Profile
-                </button>
-              </div>
-            </form>
-          </Modal>
-          </div>
-        </div>
-
-      </main>
-       <Footer /> 
-    </div>
+    <form onSubmit={handleSubmit}>
+      {error && <p className="error-message">{error}</p>}
+      {success && <p className="success-message">{success}</p>}
+      <div className="profile_email">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+      <div className="profile_newpass">
+        <label htmlFor="password">New Password</label>
+        <p>(leave blank to keep current)</p>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter new password"
+        />
+        <button type="submit" className="modal-btn">
+          Update Profile
+        </button>
+      </div>
+    </form>
   );
 }
 
